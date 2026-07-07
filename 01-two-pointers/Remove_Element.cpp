@@ -22,19 +22,19 @@ to the end to avoid unnecessary shifts.
 
 class Solution {
 public:
-    int removeElement(vector<int>& arr, int val) {
-        int front = 0;
-        int back = arr.size() - 1;
+    int removeElement(vector<int>& nums, int val) {
+        int slow = 0;
 
-        while (front <= back) {            
-            if (arr[front] == val) {
-                swap(arr[back], arr[front]);
-                back--;
-                } else {
-                    front++;
-                }  
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i]!= val)
+            {
+                nums[slow]=nums[i];
+                slow++;
+            }
         }
-                 
-          return front;  
+
+        return slow;
+        
     }
 };
