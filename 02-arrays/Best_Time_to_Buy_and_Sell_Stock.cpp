@@ -23,13 +23,16 @@ before the current day.
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int min_price = INT_MAX;
-        int max_profit = 0;
+        int curr_min = prices[0];
+        int max_prof=0;
 
-        for (int price : prices) {
-            min_price = min(min_price, price);
-            max_profit = max(max_profit, price - min_price);
+        for(int p:prices)
+        {
+            if(p < curr_min)
+                curr_min=p;
+            max_prof = max(max_prof,p-curr_min);
         }
-        return max_profit;
+
+        return max_prof;
     }
 };
